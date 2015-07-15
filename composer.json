@@ -1,0 +1,21 @@
+{
+    "name": "andrewboy/historylog",
+    "description": "Laravel package for Model history logging.",
+    "keywords": ["laravel", "model", "history", "log"],
+    "authors": [
+        {
+            "name": "Beck András",
+            "email": "andras.jozsef.beck@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": ">5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Andrewboy\\HistoryLog": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
