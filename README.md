@@ -6,31 +6,31 @@ It's under development, not recommended for production use!
 
 ## Installation
 
-1. add bundle to composer: 
+add bundle to composer: 
 
 ```
 "andrewboy/historylog": "dev-master"
 ```
 
-2. run composer: 
+run composer: 
 
 ```bash
 composer install / update
 ```
 
-3. add service provider to the providers list: 
+add service provider to the providers list: 
 
 ```
 'Andrewboy\HistoryLog\HistoryLogServiceProvider'
 ```
 
-4. publish config and migration: 
+publish config and migration: 
 
 ```bash
 php artisan vendor:publish --provider="Andrewboy\HistoryLog\HistoryLogServiceProvider"
 ```
 
-5. run migration: 
+run migration: 
 
 ```bash
 php artisan migrate
