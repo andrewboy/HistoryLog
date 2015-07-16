@@ -33,4 +33,20 @@ trait MyHistoryLogTrait{
         ...
     }
 }
+
+```
+
+2. Simply just add the trait to your model
+
+```php
+
+use App\Traits\MyHistoryLogTrait;
+
+class MyModel extends Model
+{
+
+    use KonicaHistoryLogTrait;
+    
+}
+
 ```
