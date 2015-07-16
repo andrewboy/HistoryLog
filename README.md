@@ -69,7 +69,7 @@ use App\Traits\MyHistoryLogTrait;
 class MyModel extends Model
 {
 
-    use KonicaHistoryLogTrait;
+    use MyHistoryLogTrait;
     
 }
 
