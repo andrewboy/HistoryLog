@@ -11,3 +11,25 @@ It's under development, not recommended for production use!
 3. add service provider to the providers list: 'Andrewboy\HistoryLog\HistoryLogServiceProvider'
 4. publish config and migration: php artisan vendor:publish --provider="Andrewboy\HistoryLog\HistoryLogServiceProvider"
 5. php artisan migrate
+
+## Usage
+
+1. You have to create a Trait that uses the "HistoryLog" trait and implement the "getUserId" abstract method.
+
+```php
+
+use Andrewboy\HistoryLog\Traits\HistoryLogTrait;
+
+trait MyHistoryLogTrait{
+    use HistoryLogTrait;
+    
+    /**
+     * Get the logged users' ID
+     * @return integer | null On success user ID
+     */
+    public function getUserId()
+    {
+        ...
+    }
+}
+```
