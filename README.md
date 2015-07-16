@@ -21,6 +21,7 @@ It's under development, not recommended for production use!
 use Andrewboy\HistoryLog\Traits\HistoryLogTrait;
 
 trait MyHistoryLogTrait{
+
     use HistoryLogTrait;
     
     /**
