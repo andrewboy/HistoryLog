@@ -6,7 +6,12 @@ It's under development, not recommended for production use!
 
 ## Installation
 
-1. add bundle to composer: "andrewboy/historylog": "dev-master"
+1. add bundle to composer: 
+
+```
+"andrewboy/historylog": "dev-master"
+```
+
 2. run composer: 
 
 ```bash
