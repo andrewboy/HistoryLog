@@ -18,9 +18,23 @@ It's under development, not recommended for production use!
 composer install / update
 ```
 
-3. add service provider to the providers list: 'Andrewboy\HistoryLog\HistoryLogServiceProvider'
-4. publish config and migration: php artisan vendor:publish --provider="Andrewboy\HistoryLog\HistoryLogServiceProvider"
-5. php artisan migrate
+3. add service provider to the providers list: 
+
+```
+'Andrewboy\HistoryLog\HistoryLogServiceProvider'
+```
+
+4. publish config and migration: 
+
+```bash
+php artisan vendor:publish --provider="Andrewboy\HistoryLog\HistoryLogServiceProvider"
+```
+
+5. run migration: 
+
+```bash
+php artisan migrate
+```
 
 ## Usage
 
