@@ -26,25 +26,29 @@ class ModelEventObserver
     public function saved(Model $model)
     {
         $this->performAction($model, 'saved');
+        $model->clearModifiedAttributes();
     }
 
     /**
      * Perform the action
      * @param Model $model
      * @param type $event
-     * @return HistoryLog model
+     * @return HistoryLog|null Returns null when nothing changes
      */
     public function performAction(Model $model, $event)
     {
         $modelPrevState = $model->getPrevState();
-
+        $changedValues = $model->getModifiedAttributes();
         $history = new HistoryLog;
-        $history->version = $modelPrevState ? $modelPrevState->version + 1 : 0;
-        $history->model_type = get_class($model);
-        $history->model_id = $model->id;
-        $history->user_id = $model->getUserId();
-        $history->changed_value = json_encode($model->getModifiedAttributes());
-        $history->save();
+        
+        if (count($changedValues)) {
+            $history->version = $modelPrevState ? $modelPrevState->version + 1 : 0;
+            $history->model_type = get_class($model);
+            $history->model_id = $model->id;
+            $history->user_id = $model->getUserId();
+            $history->changed_value = json_encode($changedValues);
+            $history->save();
+        }
         
         return $history;
     }
