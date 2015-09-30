@@ -96,11 +96,11 @@ trait HistoryLogTrait
      * @param integer $offset
      * @return Collection | null Collection on success
      */
-    public function getStates($limit = 1, $offset = 0)
+    public function getStates($limit = 1, $offset = 0, $orderDirection = 'desc')
     {
         return HistoryLog::where('model_id', $this->id)
                 ->where('model_type', get_class($this))
-                ->orderBy('created_at', 'desc')
+                ->orderBy('created_at', $orderDirection)
                 ->offset($offset)
                 ->limit($limit)
                 ->get();
