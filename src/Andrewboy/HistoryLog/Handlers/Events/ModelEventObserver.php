@@ -25,13 +25,14 @@ class ModelEventObserver
      */
     public function saved(Model $model)
     {
-        return $this->performAction($model, 'saved');
+        $this->performAction($model, 'saved');
     }
 
     /**
      * Perform the action
      * @param Model $model
      * @param type $event
+     * @return HistoryLog model
      */
     public function performAction(Model $model, $event)
     {
@@ -44,5 +45,7 @@ class ModelEventObserver
         $history->user_id = $model->getUserId();
         $history->changed_value = json_encode($model->getModifiedAttributes());
         $history->save();
+        
+        return $history;
     }
 }
