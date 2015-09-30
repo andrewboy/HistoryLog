@@ -1,10 +1,10 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateHistoryLogsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -20,7 +20,7 @@ class CreateHistoryLogsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->text('changed_value')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            
+
             $table->index(['model_id', 'model_type']);
         });
     }
