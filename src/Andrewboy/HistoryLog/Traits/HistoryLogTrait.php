@@ -27,7 +27,7 @@ trait HistoryLogTrait
      */
     public function getPrevState()
     {
-        return $this->getStates();
+        return $this->getStates()->first();
     }
 
     /**
@@ -71,7 +71,7 @@ trait HistoryLogTrait
      */
     public function getCurrentVersion()
     {
-        $lastState = $this->getStates();
+        $lastState = $this->getStates()->first();
 
         return $lastState ? $lastState->version : null;
     }
