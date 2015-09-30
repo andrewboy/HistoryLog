@@ -23,7 +23,7 @@ trait HistoryLogTrait
     /**
      * Get the previous state of the model
      *
-     * @return Collection | null Collection on success
+     * @return Model | null Model on success
      */
     public function getPrevState()
     {
@@ -71,7 +71,7 @@ trait HistoryLogTrait
      */
     public function getCurrentVersion()
     {
-        $lastState = $this->getStates()->first();
+        $lastState = $this->getPrevState();
 
         return $lastState ? $lastState->version : null;
     }
