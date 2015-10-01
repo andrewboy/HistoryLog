@@ -39,17 +39,19 @@ class ModelEventObserver
     {
         $modelPrevState = $model->getPrevState();
         $changedValues = $model->getModifiedAttributes();
-        $history = new HistoryLog;
         
         if (count($changedValues)) {
+            $history = new HistoryLog;
             $history->version = $modelPrevState ? $modelPrevState->version + 1 : 0;
             $history->model_type = get_class($model);
             $history->model_id = $model->id;
             $history->user_id = $model->getUserId();
             $history->changed_value = json_encode($changedValues);
             $history->save();
+            
+            return $history;
         }
         
-        return $history;
+        return null;
     }
 }
